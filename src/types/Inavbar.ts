@@ -1,0 +1,3 @@
+interface Inavbar {
+    cartCount?: number,
+}

@@ -74,4 +74,8 @@ export const { emptyCart } = cartSlice.actions;
 export const { removeFromCart } = cartSlice.actions;
 export const { decreaseFromCart } = cartSlice.actions;
 export const getCart = (state: { carts: IinitialState }) => state.carts.items;
+export const getTotal = (state: { carts: { items: Array<IProductWithCount> } }) => {
+    return state.carts.items.reduce(function (acc, obj) { return acc + obj.price * obj.count!; }, 0);
+};
+
 export default cartSlice.reducer;

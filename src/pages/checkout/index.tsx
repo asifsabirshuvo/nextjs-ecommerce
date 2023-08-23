@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar'
 import ProductCheckout from '@/components/ProductCheckout'
-import { getCart, emptyCart } from '@/store/slices/cartSlice';
+import { getCart, emptyCart, getTotal } from '@/store/slices/cartSlice';
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -8,6 +8,7 @@ import emptySvgIcon from './../../assets/undraw_empty_cart_co35.svg'
 import Image from 'next/image';
 export default function CheckoutPage() {
     const carts = useSelector(getCart)
+    const total = useSelector(getTotal)
     const dispatch = useDispatch();
     return (
         <div >
@@ -22,7 +23,7 @@ export default function CheckoutPage() {
                 <span className='text-2xl p-2 text-gray-400'>No items, keep shopping.</span>
             </div>}
             {carts.length > 0 && <div className='w-auto pt-2'>
-                <span className='float-left ml-14 mt-2 text-lg'>Total price: <b>?? USD</b></span>
+                <span className='float-left ml-14 mt-2 text-lg'>Total price: <b>{total} USD</b></span>
                 <a onClick={(event) => {
                     event.target == event.currentTarget &&
                         event.stopPropagation();

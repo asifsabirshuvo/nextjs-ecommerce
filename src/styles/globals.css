@@ -4,8 +4,8 @@
 
 
 
-.shaker:hover {
-    animation: shake 0.7s;
+.shaker {
+    animation: shake 0.4s;
 
     animation-iteration-count: infinite;
 }

@@ -13,7 +13,6 @@ export default function Products() {
       <div className="grid grid-cols-4 gap-4 p-[1.5%]">
         {
           products.map((product: IProduct) => {
-            console.log(product);
             return < Product key={product.id} {...product} />
           })
         }

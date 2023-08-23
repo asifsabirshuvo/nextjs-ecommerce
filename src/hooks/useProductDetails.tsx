@@ -8,21 +8,16 @@ export const useProductDetails = (id: number) => {
     const router = useRouter();
     const [productDetail, setProductDetail] = useState<IProduct>({});
     const fetchData = async () => {
-        console.log('coming to fetch')
-        const URL = "https://fakestoreapi.com/products/" + id;
-        console.log(URL)
+        const URL = `${process.env.NEXT_PUBLIC_API_URL!}products/${id}`;
         const response = await axios.get(
             URL
         );
-        console.log(response)
         if (response && response.data) {
-            console.log(response)
             setProductDetail(response.data);
         }
     };
     useEffect(() => {
         if (router.isReady) {
-            console.log('===== useEffect calling ====')
             fetchData();
         }
     }, [router.isReady]);

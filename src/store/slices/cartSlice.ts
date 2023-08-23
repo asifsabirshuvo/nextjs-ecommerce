@@ -13,14 +13,11 @@ export const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action) => {
-            console.log('addtpcart')
             if (state.items.some(item => item.id == action.payload.id)) {
-                //just increment count
                 let itemData;
                 state.items.map(item => {
                     if (item.id == action.payload.id) {
                         itemData = item;
-                        //increment count
                         if (itemData.count) itemData.count++;
                     }
                 })
@@ -32,7 +29,6 @@ export const cartSlice = createSlice({
         },
 
         decreaseFromCart: (state, action) => {
-            console.log('here====')
             let removeRequired = false;
             state.items.map(item => {
                 if (item.id == action.payload && item.count !== undefined) {

@@ -7,7 +7,6 @@ import { addToCart } from "@/store/slices/cartSlice";
 
 export default function Product() {
     const router = useRouter();
-    console.log(router.query.id)
     const { productDetail } = useProductDetails(Number(router.query.id));
     const dispatch = useDispatch();
 

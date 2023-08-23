@@ -1,4 +1,4 @@
-import { addToCart, removeFromCart } from "@/store/slices/cartSlice";
+import { addToCart, decreaseFromCart, removeFromCart } from "@/store/slices/cartSlice";
 import Image from "next/image";
 import { useRouter } from 'next/router'
 import { useDispatch } from 'react-redux';
@@ -41,6 +41,7 @@ export default function ProductCheckout(product: IProductWithCount) {
                                     event.stopPropagation();
                             }} className=" focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-500 dark:focus:ring-red-800" role="group">
                                 <button
+                                    onClick={() => { dispatch(decreaseFromCart(product.id)) }}
                                     type="button" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 dark:focus:text-white">
                                     -
                                 </button>

@@ -24,11 +24,15 @@ export const cartSlice = createSlice({
                     }
                 })
                 state.items = [...state.items];
-                console.log('existing incrementing count')
             } else {
                 const itemData = { ...action.payload, count: 1 }
                 state.items = [...state.items, itemData];
             }
+        },
+
+        removeFromCart: (state, action) => {
+            const itemsAfterRemove = state.items.filter(item => item.id != action.payload)
+            state.items = itemsAfterRemove;
         },
 
         emptyCart: (state) => {
@@ -39,5 +43,6 @@ export const cartSlice = createSlice({
 
 export const { addToCart } = cartSlice.actions;
 export const { emptyCart } = cartSlice.actions;
+export const { removeFromCart } = cartSlice.actions;
 export const getCart = (state: { carts: IinitialState }) => state.carts.items;
 export default cartSlice.reducer;

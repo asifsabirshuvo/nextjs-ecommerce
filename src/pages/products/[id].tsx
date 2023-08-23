@@ -2,15 +2,18 @@ import Navbar from "@/components/Navbar";
 import { useProductDetails } from "@/hooks/useProductDetails";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { useDispatch } from 'react-redux';
+import { addToCart } from "@/store/slices/cartSlice";
 
-export default function Home() {
+export default function Product() {
     const router = useRouter();
     console.log(router.query.id)
     const { productDetail } = useProductDetails(Number(router.query.id));
+    const dispatch = useDispatch();
 
     return (
         <div className="bg-slate-100">
-            <Navbar cartCount={5} />
+            <Navbar />
 
             <section className="text-gray-700 body-font overflow-hidden bg-white">
                 {
@@ -58,7 +61,11 @@ export default function Home() {
 
                                 <div className="flex mt-5">
                                     <span className="title-font font-medium text-2xl text-gray-900">{productDetail.price}$</span>
-                                    <button className="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Add to cart</button>
+                                    <button
+                                        onClick={() => {
+                                            dispatch(addToCart(productDetail));
+                                        }}
+                                        className="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">Add to cart</button>
                                 </div>
                             </div>
                         </div>

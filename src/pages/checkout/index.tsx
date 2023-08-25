@@ -23,7 +23,7 @@ export default function CheckoutPage() {
                 <span className='text-2xl p-2 text-gray-400'>No items, keep shopping.</span>
             </div>}
             {carts.length > 0 && <div className='w-auto pt-2'>
-                <span className='float-left ml-14 mt-2 text-lg'>Total price: <b>{total} USD</b></span>
+                <span className='float-left ml-14 mt-2 text-lg'>Total price: <b>{(Math.round(total * 100) / 100).toFixed(2)} USD</b></span>
                 <a onClick={(event) => {
                     event.target == event.currentTarget &&
                         event.stopPropagation();

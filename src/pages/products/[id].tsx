@@ -11,10 +11,9 @@ export default function Product() {
     const dispatch = useDispatch();
 
     return (
-        <div className="bg-slate-100">
+        <div>
             <Navbar />
-
-            <section className="text-gray-700 body-font overflow-hidden bg-white">
+            <section className="text-gray-700 body-font h-full overflow-hidden bg-white dark:bg-slate-900">
                 {
                     !productDetail.id && <div role="status"
                         className="m-48 space-y-8 animate-pulse md:space-y-0 md:space-x-8 md:flex md:items-center">
@@ -41,7 +40,7 @@ export default function Product() {
                                 className="w-auto p-8 rounded-t-lg"
                                 src={productDetail?.image} alt="product image" />
                             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                                <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{productDetail.title}</h1>
+                                <h1 className="text-gray-900 dark:text-white text-3xl title-font font-medium mb-1">{productDetail.title}</h1>
                                 <div className="flex mb-4">
                                     <span className="flex items-center">
                                         <div className="flex items-center mt-2.5 mb-5">

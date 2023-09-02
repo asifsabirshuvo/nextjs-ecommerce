@@ -8,7 +8,7 @@ export default function Products() {
   const { products } = useProducts();
 
   return (
-    <div className="bg-slate-100">
+    <div className="bg-slate-100 dark:bg-slate-900">
       <Navbar />
       <div className="grid grid-cols-4 gap-4 p-[1.5%]">
         {

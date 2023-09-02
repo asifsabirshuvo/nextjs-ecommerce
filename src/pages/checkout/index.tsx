@@ -11,7 +11,7 @@ export default function CheckoutPage() {
     const total = useSelector(getTotal)
     const dispatch = useDispatch();
     return (
-        <div >
+        <div className="dark:bg-slate-900 min-h-full">
             <Navbar />
             {carts.length == 0 && <div className=" ml-[38%] mt-[9%]">
                 <Image
